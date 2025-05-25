@@ -1,0 +1,33 @@
+import { Image } from '~/shared'
+import s from './home.module.scss'
+import { ClaudeBg } from './claude-bg'
+
+const Claude = () => {
+  const path = '"${absolutePath}'
+  return (
+    <section id="integrate-with-claude" className={s['claude']}>
+      <ClaudeBg />
+      <h1>
+        Integrate with Claude <br /> Desktop
+      </h1>
+      <Image src="/claude.svg" width={358} height={129} alt="claude" />
+      <p>
+        Add the following configuration to your <br />{' '}
+        <em>`claude_desktop_config.json</em>
+      </p>
+      <pre>{`{
+  "mcpServers": {
+    "solanaTracker": {
+      "command": "node",
+      "args": [${path}/build/index.js"],
+      "env": {
+        "SOLANA_RPC_URL": "https://your-rpc-endpoint.com"
+      }
+    }
+  }
+}`}</pre>
+    </section>
+  )
+}
+
+export default Claude

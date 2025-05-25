@@ -28,12 +28,14 @@
       position: absolute;
       left: 5px;
       top: max(35rem, 150px);
+      width: max(25rem, 80px);
     }
 
     &-2 {
       position: absolute;
       right: 5px;
       top: max(35rem, 150px);
+      width: max(25rem, 80px);
     }
   }
 
@@ -139,14 +141,15 @@
   z-index: z('navigation');
 
   button {
-    @extend %text-12;
+    font-size: max(1.2rem, 10px);
+    white-space: nowrap;
     font-family: var(--font-geist);
     font-weight: 400;
     line-height: 100%;
     color: var(--theme-brown);
     text-transform: uppercase;
     background: var(--theme-white);
-    padding: max(1.2rem, 10px);
+    padding: max(1.2rem, 8px);
 
     border-top: 1px solid var(--theme-brown);
     border-bottom: 1px solid var(--theme-brown);
@@ -179,5 +182,73 @@
   svg {
     width: max(16rem, 120px);
     height: auto;
+  }
+}
+
+.claude {
+  min-height: 100svh;
+  position: relative;
+
+  @extend %center;
+  flex-direction: column;
+  gap: max(3rem, 20px);
+
+  padding-block: max(10rem, 50px);
+  padding-inline: var(--gutter);
+  color: var(--theme-white);
+
+  &-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: var(--theme-brown);
+    pointer-events: none;
+    object-fit: cover;
+  }
+
+  h1 {
+    font-family: var(--font-cormorant);
+    font-weight: 500;
+    font-size: max(4rem, 25px);
+    line-height: 103%;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  p {
+    @extend %text-12;
+    text-align: center;
+    font-weight: 500;
+    line-height: 149%;
+    text-align: center;
+
+    em {
+      font-family: var(--font-geist);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  pre {
+    @extend %text-12;
+    font-family: var(--font-geist);
+    font-weight: 400;
+    line-height: 140%;
+
+    background: #6e5d43;
+    border: 1px solid #f8f8f6;
+
+    padding-block: max(4.4rem, 20px);
+    padding-inline: max(6rem, 20px);
+
+    max-width: 96vw;
+    overflow: hidden;
+  }
+
+  img {
+    width: max(36rem, 200px);
+    margin-block: max(4rem, 20px);
   }
 }

@@ -33,7 +33,7 @@ const Nav = () => {
             key={link}
             data-link={slugify(link)}
             onClick={() => {
-              lenis.scrollTo(slugify(link))
+              lenis.scrollTo(`#${slugify(link)}`)
             }}
           >
             {link}
