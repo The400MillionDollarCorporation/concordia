@@ -9,12 +9,16 @@ const themes = {
   light: {
     primary: colors.white,
     secondary: colors.black,
+    white: colors.white,
+    black: colors.black,
     green: colors.green,
     brown: colors.brown,
   },
   dark: {
     primary: colors.black,
     secondary: colors.white,
+    white: colors.white,
+    black: colors.black,
     green: colors.green,
     brown: colors.brown,
   },
