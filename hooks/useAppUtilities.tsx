@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-import { Merriweather } from 'next/font/google'
+import { Cormorant_Garamond, Geist_Mono } from 'next/font/google'
 import { useEffectOnce, useFoucFix } from '@studio-lumio/hooks'
 import { useAvif } from '~/hooks'
 import { useStore } from '~/libs/store'
@@ -8,13 +8,8 @@ const opensauce = localFont({
   display: 'swap',
   src: [
     {
-      path: '../public/fonts/OpenSauceTwo-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/OpenSauceTwo-ExtraBold.woff2',
-      weight: '800',
+      path: '../public/fonts/OpenSauce.woff2',
+      weight: '400',
       style: 'normal',
     },
     {
@@ -22,20 +17,21 @@ const opensauce = localFont({
       weight: '500',
       style: 'normal',
     },
-    {
-      path: '../public/fonts/OpenSauceTwo-SemiBold.woff2',
-      weight: '600',
-      style: 'normal',
-    },
   ],
   variable: '--font-opensauce',
 })
-const merriweather = Merriweather({
+
+const cormorant_garamond = Cormorant_Garamond({
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
   style: ['normal', 'italic'],
-  weight: ['300', '400', '700', '900'],
-  variable: '--font-merriweather',
+  weight: ['400', '500', '700'],
+  variable: '--font-cormorant',
+})
+
+const geist_mono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist',
 })
 
 export function useAppUtilities() {
@@ -43,7 +39,11 @@ export function useAppUtilities() {
   useAvif({ setState: useStore.getState().setAvifSupport })
 
   useEffectOnce(() => {
-    document.body.classList.add(merriweather.variable, opensauce.className)
+    document.body.classList.add(
+      cormorant_garamond.variable,
+      geist_mono.variable,
+      opensauce.className
+    )
   })
 
   return null

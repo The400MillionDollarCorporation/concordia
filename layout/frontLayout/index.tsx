@@ -5,7 +5,7 @@ import { ScrollTrigger } from '~/libs/gsap'
 
 import S from './Layout.module.scss'
 
-import { Link, Metadata } from '~/shared'
+import { Metadata } from '~/shared'
 import cn from '~/libs/cn'
 import { scrollOptions } from '~/config/variables'
 import Router from 'next/router'
@@ -15,7 +15,7 @@ const FrontLayout = ({
   children,
   page,
   desc,
-  title = 'Starter',
+  title = 'Concordia',
   theme = 'light',
   img,
 }: {
@@ -26,29 +26,10 @@ const FrontLayout = ({
   img?: string
   theme?: 'light' | 'dark'
 }) => {
-  type ILinks = { href: string; name: string }
-  const links: ILinks[] = [
-    {
-      href: '/',
-      name: 'Home',
-    },
-    {
-      href: '/about',
-      name: 'About',
-    },
-    {
-      href: '/contact',
-      name: 'Contact',
-    },
-    {
-      href: '/works/zekast',
-      name: 'Works',
-    },
-  ]
-
   useEffectOnce(() => {
     document.body.classList.add(`theme-${theme}`)
   })
+
   const lenis = useLenis(() => ScrollTrigger.update())
   useEffect(() => ScrollTrigger.refresh(), [lenis])
   useEffect(() => {
@@ -64,28 +45,17 @@ const FrontLayout = ({
     }
   }, [lenis])
 
-  const pageDesc = 'starter file for studio lumio'
+  const pageDesc =
+    'Concordia MCP is a next-generation Model Context Protocol (MCP) server built for serious DeFi participants. It delivers real-time portfolio insights, behavioral analytics, and AI-powered strategy recommendations—all within the fast, scalable Solana ecosystem.'
   return (
     <ReactLenis root options={{ ...scrollOptions }}>
       <Metadata
         PAGE_OG_IMG={img}
-        PAGE_TITLE={`${capitalize(title)} - Starter`}
+        PAGE_TITLE={`${capitalize(title)}`}
         PAGE_DESC={desc || pageDesc}
       />
 
       <main className={cn(`theme-${theme}`, S.layout)}>
-        <header className={S.header}>
-          <div className={S['header-left']}>
-            <ul>
-              {links.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href}>{link.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </header>
-
         <div className={S.child} data-page={page}>
           {children}
         </div>

@@ -5,13 +5,13 @@ const PAGE_ICON = '/icon.svg'
 const PAGE_THEME = '#ff6a00'
 
 const PAGE_URL = 'https://adebisi.design/'
-const PAGE_CREATOR = '@jobenetuk'
+const PAGE_CREATOR = '@studio_lumio'
 const PAGE_KEYWORDS =
-  'creative,UX,UI,userexperience,webdesign,webdeveloper,design,codedesign,code,hashtag,development,website,websitedevelopment,architecture'
+  'concordia,mcp,model context protocol,defi,decentralized finance,portfolio insights,behavioral analytics,ai-powered recommendations,solana ecosystem,real-time analytics,blockchain,scalable server,financial analytics,crypto analytics'
 
 export const Metadata = ({
-  PAGE_TITLE = "ADBC '24 - Folio V1",
-  PAGE_DESC = "ADBC '24",
+  PAGE_TITLE = 'Concordia',
+  PAGE_DESC = 'Concordia MCP is a next-generation Model Context Protocol (MCP) server built for serious DeFi participants. It delivers real-time portfolio insights, behavioral analytics, and AI-powered strategy recommendations—all within the fast, scalable Solana ecosystem.',
   PAGE_OG_IMG = '/og.png',
 }: {
   PAGE_OG_IMG?: string
