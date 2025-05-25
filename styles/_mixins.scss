@@ -1,0 +1,103 @@
+// flexbox
+@mixin flex(
+  $justify: flex-start,
+  $align: flex-start,
+  $flow: row wrap,
+  $gap: 0
+) {
+  display: flex;
+  flex-flow: $flow;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// breakpoints
+$breakpoints: (
+  'mobile': get('breakpoints.mobile'),
+  'mobile2x': get('breakpoints.mobile2x'),
+  'mobile3x': get('breakpoints.mobile3x'),
+  'tablet': get('breakpoints.tablet'),
+  'tablet2x': get('breakpoints.tablet2x'),
+  'tablet3x': get('breakpoints.tablet3x'),
+  'desktop': get('breakpoints.desktop'),
+  'desktop2x': get('breakpoints.desktop2x'),
+) !default;
+
+//Mixin
+@mixin viewport-h($height) {
+  height: calc(1vh * $height);
+  height: calc($height * var(--vh));
+  height: calc(1dvh * $height);
+}
+
+@mixin viewport-min-h($height) {
+  min-height: calc(1vh * $height);
+  min-height: calc($height * var(--vh));
+  min-height: calc(1dvh * $height);
+}
+
+@mixin viewport-max-h($height) {
+  max-height: calc(1vh * $height);
+  max-height: calc($height * var(--vh));
+  max-height: calc(1dvh * $height);
+}
+
+@mixin cursor {
+  @media (any-pointer: fine) {
+    @content;
+  }
+}
+
+@mixin cursor-mobile {
+  @media (min-width: 768px) and (any-pointer: fine) {
+    @content;
+  }
+}
+
+@mixin ratio($width, $height) {
+	overflow: hidden;
+	aspect-ratio: $width / $height;
+	object-fit: cover;
+	position: relative;
+
+	@supports not (aspect-ratio: calc($width / $height)) {
+		&::before {
+			content: '';
+			float: left;
+			padding-top: calc((#{$height} / #{$width}) * 100%);
+		}
+		&::after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+	}
+}
+
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin respondMin($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin respondMax($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

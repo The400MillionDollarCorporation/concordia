@@ -1,0 +1,31 @@
+// hide native scrollbar
+
+.scrollbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 4;
+  z-index: z('scrollbar');
+  padding: max(5px, 1rem) 0;
+
+  .inner {
+    height: 100%;
+    position: relative;
+  }
+
+  .thumb {
+    min-height: max(4.8rem, 24px);
+    width: max(0.5rem, 5px);
+    background-color: var(--primary);
+    position: absolute;
+    right: max(0.2rem, 2px);
+    border-radius: max(0.4rem, 4px);
+    border: max(0.5px, 0.1rem) solid var(--primary);
+    cursor: grab;
+  }
+
+  @include respondMax(mobile3x) {
+    display: none;
+  }
+}

@@ -1,0 +1,31 @@
+.marquee {
+  display: flex;
+  overflow-x: clip;
+
+  .inner {
+    display: flex;
+    white-space: nowrap;
+    transform: translate3d(0, 0, 0);
+
+    > * {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.marqueehz {
+  display: flex;
+  flex-direction: column;
+  overflow-y: clip;
+  //   height: 20px;
+
+  .inner {
+    display: flex;
+    white-space: nowrap;
+    transform: translate3d(0, 0, 0);
+
+    > * {
+      flex-shrink: 0;
+    }
+  }
+}

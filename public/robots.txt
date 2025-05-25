@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://starter.studiolumio.com
+
+# Sitemaps
+Sitemap: https://starter.studiolumio.com/sitemap.xml

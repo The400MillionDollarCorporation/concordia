@@ -1,0 +1,90 @@
+{
+  "name": "starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "analyze": "cross-env ANALYZE=true next build",
+    "dev": "next dev",
+    "build": "next build && next-sitemap",
+    "start": "next start",
+    "lint": "next lint",
+    "postbuild": "next-sitemap",
+    "postinstall": "husky",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "prepare": "husky install",
+    "size": "npm run build && size-limit"
+  },
+  "dependencies": {
+    "@14islands/react-page-transitions": "^1.3.1",
+    "@apollo/client": "^3.9.5",
+    "@gsap/react": "^2.1.0",
+    "@next/third-parties": "^14.2.3",
+    "@react-three/drei": "^9.80.6",
+    "@react-three/fiber": "^8.13.7",
+    "@serwist/next": "^8.4.4",
+    "@serwist/precaching": "^8.4.4",
+    "@serwist/sw": "^8.4.4",
+    "@studio-freight/tempus": "^0.0.36",
+    "@studio-lumio/hooks": "^0.1.40",
+    "gsap": "^3.11.1",
+    "lenis": "^1.1.8",
+    "next": "^15.1.7",
+    "next-sitemap": "^4.0.7",
+    "normalize-wheel": "^1.0.1",
+    "postprocessing": "^6.33.2",
+    "prefix": "^1.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.55.0",
+    "split-type": "^0.3.3",
+    "three": "^0.153.0",
+    "tunnel-rat": "^0.1.2",
+    "txt-shuffle": "^1.0.3",
+    "zustand": "^4.3.7"
+  },
+  "devDependencies": {
+    "@builder.io/partytown": "^0.7.6",
+    "@cloudflare/next-on-pages": "^1.9.0",
+    "@next/bundle-analyzer": "^13.3.0",
+    "@size-limit/preset-app": "^11.0.0",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "18.7.22",
+    "@types/react": "^18.2.57",
+    "@types/react-dom": "^18.2.19",
+    "@types/three": "^0.152.1",
+    "critters": "^0.0.16",
+    "cross-env": "^7.0.3",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^13.3.0",
+    "eslint-config-prettier": "^8.5.0",
+    "file-loader": "^6.2.0",
+    "glslify": "^7.1.1",
+    "glslify-loader": "^2.0.0",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "husky": "^9.0.10",
+    "prettier": "^2.6.2",
+    "raw-loader": "^4.0.2",
+    "typescript": "4.8.3",
+    "url-loader": "^4.1.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,css,scss,md}": "prettier --write"
+  },
+  "size-limit": [
+    {
+      "path": ".next/static/chunks/**/*.js"
+    }
+  ],
+  "resolutions": {
+    "react-is": "16.13.1",
+    "scheduler": "0.23.0",
+    "zustand": "^4.3.7",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@wry/trie": "0.5.0"
+  },
+  "packageManager": "yarn@4.1.0"
+}

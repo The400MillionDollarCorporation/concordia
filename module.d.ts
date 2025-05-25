@@ -1,0 +1,7 @@
+declare module 'normalize-wheel'
+declare module 'lenis'
+declare module 'lenis/react'
+declare module '*.graphql'
+declare module '*.frag'
+declare module '*.vert'
+declare module '*.glsl'

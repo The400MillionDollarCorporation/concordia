@@ -1,0 +1,11 @@
+.preloader {
+  @extend %cover;
+  @extend %center;
+  position: fixed;
+  background: black;
+  color: white;
+  z-index: z('preloader');
+  h1 {
+    @extend %text-96;
+  }
+}

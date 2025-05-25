@@ -1,0 +1,24 @@
+@function z($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; Choose one of: #{$z-indexes}';
+
+    @return null;
+  }
+}
+
+$z-indexes: (
+  'noscript',
+  'preloader',
+  'scrollbar',
+  'modal',
+  'navigation',
+  'cursor',
+  'content',
+  'canvas',
+  '4',
+  '3',
+  '2',
+  '1'
+);

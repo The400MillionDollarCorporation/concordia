@@ -1,0 +1,31 @@
+#import "../fragments/media.graphql"
+
+query caseStudyEntryQuery {
+  caseStudyCollection(limit: 20) {
+    items {
+      sys {
+        id
+      }
+      name
+    }
+  }
+}
+
+query worksPageEntryQuery {
+  worksPage(id: "4ArdcWCITJ9YB5LJy76Fel") {
+    sys {
+      id
+    }
+    cta
+    caseStudiesCollection(limit: 20) {
+      items {
+        coverImage {
+          url
+        }
+        name
+        role
+        year
+      }
+    }
+  }
+}

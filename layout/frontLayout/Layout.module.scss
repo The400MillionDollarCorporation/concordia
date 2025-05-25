@@ -1,0 +1,34 @@
+.layout {
+  // padding-top: 5rem;
+}
+
+.child {
+  min-height: 100vh;
+  @extend %container;
+  h1 {
+    @extend %text-96;
+  }
+}
+
+.header {
+  @extend %container;
+  @extend %jcsb;
+  a {
+    @extend %text-14;
+    font-weight: 700;
+  }
+
+  &-left {
+    @extend %aic;
+    gap: 3rem;
+    ul {
+      @extend %aic;
+      gap: 3rem;
+      li {
+        a {
+          @extend %link--hidden;
+        }
+      }
+    }
+  }
+}
