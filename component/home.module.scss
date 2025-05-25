@@ -1,0 +1,39 @@
+.overview {
+  &-logo {
+    position: fixed;
+    top: max(5rem, 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max(29.2rem, 160px);
+  }
+}
+
+.nav {
+  position: fixed;
+  left: 50%;
+  bottom: max(3rem, 15px);
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    @extend %text-12;
+    font-family: var(--font-geist);
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--theme-brown);
+    text-transform: uppercase;
+    background: var(--theme-white);
+    padding: max(1.2rem, 10px);
+
+    border-top: 1px solid var(--theme-brown);
+    border-bottom: 1px solid var(--theme-brown);
+    border-right: 1px solid var(--theme-brown);
+
+    &:first-of-type {
+      border-left: 1px solid var(--theme-brown);
+    }
+  }
+}
