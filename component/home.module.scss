@@ -608,7 +608,7 @@
 .features {
   min-height: 100svh;
   padding-inline: var(--gutter);
-  margin-bottom: max(15rem, 100px);
+  margin-bottom: max(20rem, 120px);
 
   h1 {
     @extend %text-64;
@@ -791,6 +791,81 @@
 
       @include respondMax('tablet') {
         display: none;
+      }
+    }
+  }
+}
+
+.protocols {
+  min-height: 100svh;
+  padding-inline: var(--gutter);
+  margin-bottom: max(15rem, 100px);
+
+  h1 {
+    @extend %text-64;
+    font-family: var(--font-cormorant);
+    font-weight: 500;
+    line-height: 90%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--theme-green);
+    margin-bottom: max(6rem, 30px);
+  }
+
+  &-list {
+    display: grid;
+    gap: max(5rem, 30px);
+
+    &-item {
+      h2 {
+        @extend %text-20;
+        font-weight: 500;
+        line-height: 120%;
+        text-align: center;
+        margin-bottom: max(3rem, 15px);
+      }
+
+      &-sub {
+        @include ratio(194, 194);
+        width: max(19.4rem, 130px);
+        min-width: max(19.4rem, 130px);
+        height: auto;
+
+        @extend %center;
+        flex-direction: column;
+        gap: max(3.5rem, 20px);
+
+        @include respondMax('tablet') {
+          width: 100%;
+        }
+
+        span {
+          @extend %text-12;
+          font-family: var(--font-geist);
+          font-weight: 400;
+          line-height: 140%;
+          text-transform: uppercase;
+          color: var(--theme-brown);
+
+          @extend %aic;
+          gap: max(0.75rem, 5px);
+
+          img {
+            max-width: max(6.4rem, 40px);
+          }
+        }
+
+        &-i {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &-d {
+        @extend %center;
+        gap: max(2.5rem, 15px);
       }
     }
   }
