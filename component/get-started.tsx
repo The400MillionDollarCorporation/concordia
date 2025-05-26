@@ -43,6 +43,18 @@ export const GetStartedMain = () => {
             Solana RPC endpoint
           </p>
         </div>
+
+        <div className={s['get-started-top-video']}>
+          <video
+            width={623}
+            height={326}
+            muted
+            autoPlay
+            playsInline
+            loop
+            src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+          ></video>
+        </div>
       </div>
 
       <ul>
