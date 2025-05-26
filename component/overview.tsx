@@ -96,7 +96,7 @@ const Overview = () => {
 
 export default Overview
 
-const GetStarted = () => {
+export const GetStarted = () => {
   return (
     <button className={s['gs']}>
       <svg
