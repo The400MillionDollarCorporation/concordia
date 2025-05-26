@@ -1,5 +1,6 @@
 import FrontLayout from '@/layout/frontLayout'
 import Claude from '~/component/claude'
+import Contact from '~/component/contact'
 import Contributions from '~/component/contributions'
 import Nav from '~/component/nav'
 import Overview from '~/component/overview'
@@ -11,6 +12,7 @@ const HomePage = () => {
       <Overview />
       <Claude />
       <Contributions />
+      <Contact />
     </FrontLayout>
   )
 }

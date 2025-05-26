@@ -27,21 +27,29 @@ const Nav = () => {
         }}
       />
 
-      <nav className={s['nav']}>
-        {links.map((link) => (
-          <button
-            key={link}
-            data-link={slugify(link)}
-            onClick={() => {
-              lenis.scrollTo(`#${slugify(link)}`)
-            }}
-          >
-            {link}
-          </button>
-        ))}
-      </nav>
+      <NavMain />
     </>
   )
 }
 
 export default Nav
+
+export const NavMain = () => {
+  const lenis = useLenis()
+
+  return (
+    <nav className={s['nav']}>
+      {links.map((link) => (
+        <button
+          key={link}
+          data-link={slugify(link)}
+          onClick={() => {
+            lenis.scrollTo(`#${slugify(link)}`)
+          }}
+        >
+          {link}
+        </button>
+      ))}
+    </nav>
+  )
+}

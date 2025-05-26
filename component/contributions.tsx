@@ -23,7 +23,7 @@ const blocks = [
 
 const Contributions = () => {
   return (
-    <section id="contact" className={s['contributions']}>
+    <section className={s['contributions']}>
       <div className={s['contributions-top']}>
         <h1>
           Contribute to <br /> the project
