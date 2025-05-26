@@ -11,7 +11,7 @@ const links = [
   'Contact',
 ]
 
-const Nav = () => {
+export const Nav = () => {
   const lenis = useLenis()
 
   return (
@@ -31,8 +31,6 @@ const Nav = () => {
     </>
   )
 }
-
-export default Nav
 
 export const NavMain = () => {
   const lenis = useLenis()

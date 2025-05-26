@@ -12,7 +12,7 @@ const overviewItems = [
   'Security Assessment & Recom...',
 ]
 
-const Overview = () => {
+export const Overview = () => {
   return (
     <section id="overview" className={s['overview']}>
       <h1>
@@ -93,8 +93,6 @@ const Overview = () => {
     </section>
   )
 }
-
-export default Overview
 
 export const GetStarted = () => {
   return (

@@ -21,7 +21,7 @@ const blocks = [
   },
 ]
 
-const Contributions = () => {
+export const Contributions = () => {
   return (
     <section className={s['contributions']}>
       <div className={s['contributions-top']}>
