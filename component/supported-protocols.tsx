@@ -109,7 +109,11 @@ export const SupportedProtocols = () => {
                     </svg>
                     {sub.name}
                   </span>
-                  <img src={sub.icon} alt={sub.name} />
+                  <img
+                    src={sub.icon}
+                    alt={sub.name}
+                    className={s['protocols-list-item-sub-im']}
+                  />
                 </div>
               ))}
             </div>
