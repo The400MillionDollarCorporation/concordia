@@ -1,6 +1,7 @@
 import { Image } from '~/shared'
 import s from './home.module.scss'
 import { Video } from '~/shared/video'
+import { Lines } from './lines'
 
 const overviewItems = [
   'Wallet Overview & History...',
@@ -104,6 +105,8 @@ export const Overview = () => {
           height={819}
           alt=""
         />
+
+        <Lines />
       </section>
     </>
   )

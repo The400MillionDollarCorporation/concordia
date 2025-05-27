@@ -1,12 +1,12 @@
 import { Image } from '~/shared'
 import s from './home.module.scss'
-import { ClaudeBg } from './claude-bg'
+import { Lines } from './lines'
 
 const Claude = () => {
   const path = '"${absolutePath}'
   return (
     <section id="integrate-with-claude" className={s['claude']}>
-      <ClaudeBg />
+      <Lines />
       <h1>
         Integrate with Claude <br /> Desktop
       </h1>
