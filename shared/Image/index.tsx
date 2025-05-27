@@ -3,9 +3,7 @@
 import NextImage from 'next/image'
 import s from './Image.module.scss'
 import { useState } from 'react'
-import { useStore } from '~/libs/store'
 import cn from '~/libs/cn'
-import { getImageUrl } from '~/libs/contentful/api'
 
 declare type SafeNumber = number | `${number}`
 type imageType = {
@@ -39,13 +37,6 @@ export function Image({
 }: imageType) {
   const [loadingComplete, setLoadingComplete] = useState(false)
 
-  const w = Math.floor(Number(width))
-  const h = Math.floor(Number(height))
-  const avifSupport = useStore(({ avifSupport }) => avifSupport)
-  const url = src.includes('ctfassets')
-    ? getImageUrl(src, avifSupport, w * 2, h * 2, Number(quality))
-    : src
-
   return preload ? (
     <div
       className={cn(s.image, className)}
@@ -67,7 +58,7 @@ export function Image({
         draggable="false"
         quality={quality}
         alt={alt}
-        src={url}
+        src={src}
       />
     </div>
   ) : (
@@ -83,7 +74,7 @@ export function Image({
       style={{ ...style, '--width': width, '--height': height }}
       quality={quality}
       alt={alt}
-      src={url}
+      src={src}
     />
   )
 }
