@@ -57,7 +57,7 @@ const Contact = () => {
             lenis.scrollTo(0)
           }}
         />
-        <p>
+        <p data-paragraph>
           Advanced Analytics for Solana Wallets. <br /> Real-Time. AI-Driven.
           Actionable.
         </p>

@@ -25,10 +25,10 @@ export const Contributions = () => {
   return (
     <section className={s['contributions']}>
       <div className={s['contributions-top']}>
-        <h1>
+        <h1 data-paragraph>
           Contribute to <br /> the project
         </h1>
-        <p>
+        <p data-paragraph>
           We welcome contributions from developers, <br /> researchers, and
           crypto nerds alike!
         </p>
@@ -36,9 +36,17 @@ export const Contributions = () => {
         <ul>
           {contributionProcess.map((process, idx) => (
             <li key={idx}>
-              <Image src="/contributions.svg" width={194} height={194} alt="" />
-              <small className={s['process-step']}>00{idx + 1}</small>
-              <p>{process}</p>
+              <Image
+                data-reveal
+                src="/contributions.svg"
+                width={194}
+                height={194}
+                alt=""
+              />
+              <small data-reveal className={s['process-step']}>
+                00{idx + 1}
+              </small>
+              <p data-paragraph>{process}</p>
             </li>
           ))}
         </ul>
@@ -47,7 +55,7 @@ export const Contributions = () => {
       <div className={s['contributions-bottom']}>
         {blocks.map((block, idx) => (
           <div key={idx} className={s['contributions-bottom-item']}>
-            <h2>
+            <h2 data-reveal>
               <svg
                 width="4"
                 height="5"
@@ -60,6 +68,7 @@ export const Contributions = () => {
               {block.title}
             </h2>
             <div
+              data-reveal
               className={s['contributions-bottom-item-p']}
               dangerouslySetInnerHTML={{ __html: block.content }}
             ></div>

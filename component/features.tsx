@@ -1,5 +1,6 @@
 import { Image } from '~/shared'
 import s from './home.module.scss'
+
 const features = [
   {
     icon: '/feature-1.svg',
@@ -46,10 +47,11 @@ const features = [
 export const Features = () => {
   return (
     <section id="features" className={s['features']}>
-      <h1>Features</h1>
+      <h1 data-paragraph>Features</h1>
 
       <div className={s['features-div']}>
         <Image
+          data-reveal
           src="/ccd.png"
           width={403}
           height={537}
@@ -68,14 +70,14 @@ export const Features = () => {
               />
               <div className={s['features-list-item-div']}>
                 <small>00{idx + 1}</small>
-                <img src={feature.icon} alt="" />
+                <img data-reveal src={feature.icon} alt="" />
                 <div className={s['features-list-item-d']}>
-                  <h2>{feature.title}</h2>
-                  <p>{feature.description}</p>
+                  <h2 data-paragraph>{feature.title}</h2>
+                  <p data-paragraph>{feature.description}</p>
                 </div>
                 <ul>
                   {feature.points.map((point) => (
-                    <li key={point}>
+                    <li key={point} data-reveal>
                       <svg
                         width="8"
                         height="8"

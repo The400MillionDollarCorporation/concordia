@@ -15,11 +15,11 @@ export const GetStartedMain = () => {
 
       <div className={s['get-started-top']}>
         <div className={s['get-started-top-text']}>
-          <h1>
+          <h1 data-paragraph>
             Get Started In <br /> minutes
           </h1>
-          <small>Prerequisite</small>
-          <p>
+          <small data-paragraph>Prerequisite</small>
+          <p data-reveal>
             Node.js v16+{' '}
             <svg
               width="4"
@@ -119,7 +119,7 @@ export const GetStartedMain = () => {
             </svg>
             <div>
               <small>00{idx + 1}</small>
-              <p>{step}</p>
+              <p data-paragraph>{step}</p>
             </div>
           </li>
         ))}

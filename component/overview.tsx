@@ -1,10 +1,11 @@
 import { Image } from '~/shared'
 import s from './home.module.scss'
 import { Lines } from './lines'
-import { useWindowSize } from '@studio-lumio/hooks'
+import { useEffectOnce, useWindowSize } from '@studio-lumio/hooks'
 import { useEffect, useState } from 'react'
 import { gsap, SplitText } from '~/libs/gsap'
 import cn from '~/libs/cn'
+import { OpacityReveal, TextReveal } from '~/libs/animations/classes'
 
 const overviewItems = [
   'Wallet Overview & History...',
@@ -75,6 +76,21 @@ export const Overview = () => {
       })
     })
   }, [startAnimations])
+
+  useEffectOnce(() => {
+    setTimeout(() => {
+      new TextReveal({
+        el: '[data-paragraph]',
+        delay: 0.2,
+        duration: 2,
+        threshold: 0.5,
+      })
+
+      new OpacityReveal({
+        el: '[data-reveal]',
+      })
+    }, 500)
+  })
 
   return (
     <>
@@ -152,7 +168,7 @@ export const Overview = () => {
           />
         </figure>
 
-        <p className={s['overview-p']}>
+        <p data-paragraph className={s['overview-p']}>
           Concordia MCP is a next-generation Model Context Protocol (MCP) server
           built for serious DeFi participants. It delivers real-time portfolio
           insights, behavioral analytics, and AI-powered strategy

@@ -81,12 +81,12 @@ const protocols = [
 export const SupportedProtocols = () => {
   return (
     <section id="supported-protocols" className={s['protocols']}>
-      <h1>Supported platforms</h1>
+      <h1 data-paragraph>Supported platforms</h1>
 
       <div className={s['protocols-list']}>
         {protocols.map((protocol) => (
           <div key={protocol.title} className={s['protocols-list-item']}>
-            <h2>{protocol.title}</h2>
+            <h2 data-paragraph>{protocol.title}</h2>
             <div className={s['protocols-list-item-d']}>
               {protocol.subs.map((sub) => (
                 <div key={sub.name} className={s['protocols-list-item-sub']}>
@@ -97,7 +97,7 @@ export const SupportedProtocols = () => {
                     alt=""
                     className={s['protocols-list-item-sub-i']}
                   />
-                  <span>
+                  <span data-reveal>
                     <svg
                       width="5"
                       height="5"
@@ -110,6 +110,7 @@ export const SupportedProtocols = () => {
                     {sub.name}
                   </span>
                   <img
+                    data-reveal
                     src={sub.icon}
                     alt={sub.name}
                     className={s['protocols-list-item-sub-im']}
