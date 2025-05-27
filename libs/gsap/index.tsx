@@ -3,9 +3,16 @@ import { raf } from '@studio-freight/tempus'
 import { CustomEase } from 'gsap/dist/CustomEase'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { Draggable } from 'gsap/dist/Draggable'
-import { TextPlugin } from 'gsap/dist/TextPlugin'
+import { ScrambleTextPlugin } from 'gsap/dist/ScrambleTextPlugin'
+import { SplitText } from 'gsap/dist/SplitText'
 
-gsap.registerPlugin(ScrollTrigger, CustomEase, Draggable, TextPlugin)
+gsap.registerPlugin(
+  ScrollTrigger,
+  CustomEase,
+  Draggable,
+  ScrambleTextPlugin,
+  SplitText
+)
 ScrollTrigger.defaults({
   onToggle: (scrollTrigger) => {
     scrollTrigger.refresh()
@@ -69,14 +76,14 @@ if (typeof window !== 'undefined') {
   }, 0)
 }
 
-// Once the desired configurations are set, we simply export what we need to work with in the future.
 export {
   CustomEase,
   ScrollTrigger,
-  TextPlugin,
+  ScrambleTextPlugin,
   Draggable,
   DURATION,
   EASE,
   GOLDEN_RATIO,
   gsap,
+  SplitText,
 }

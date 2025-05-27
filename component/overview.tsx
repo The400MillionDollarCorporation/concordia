@@ -2,6 +2,9 @@ import { Image } from '~/shared'
 import s from './home.module.scss'
 import { Lines } from './lines'
 import { useWindowSize } from '@studio-lumio/hooks'
+import { useEffect, useState } from 'react'
+import { gsap, SplitText } from '~/libs/gsap'
+import cn from '~/libs/cn'
 
 const overviewItems = [
   'Wallet Overview & History...',
@@ -16,6 +19,62 @@ const overviewItems = [
 
 export const Overview = () => {
   const { width, height } = useWindowSize()
+
+  const [startAnimations, setStartAnimations] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStartAnimations(true)
+    }, 1000)
+  }, [])
+
+  useEffect(() => {
+    if (!startAnimations) return
+    const h1 = document.querySelector('.overview-h1')
+    const nav = document.querySelector(`.${s['nav']}`)
+    const logo = document.querySelectorAll(`.${s['logo']}`)
+    const gs = document.querySelectorAll(`.${s['gs']}`)
+    const hf = document.querySelectorAll(`.${s['hero-fade']}`)
+    const navMobile = document.querySelector(`.${s['nav-mobile']}`)
+    const hScramble = document.querySelectorAll('.hero-scramble')
+
+    const delay = 0.7
+
+    SplitText.create(h1, {
+      type: 'words',
+      onSplit(self) {
+        gsap.set(h1, { autoAlpha: 1 })
+
+        gsap.from(self.words, {
+          duration: 1.5,
+          y: 100,
+          autoAlpha: 0,
+          stagger: 0.05,
+          ease: 'expo.inOut',
+        })
+      },
+    })
+
+    gsap
+      .timeline({ delay: delay, defaults: { ease: 'none', duration: 0.75 } })
+      .to([nav, navMobile, logo, gs, hf], { autoAlpha: 1 })
+
+    hScramble.forEach((text, idx) => {
+      gsap.set(text, { opacity: 0 })
+
+      gsap.to(text, {
+        scrambleText: {
+          text: text.textContent,
+          chars: 'lowerCase',
+        },
+        duration: 2,
+        delay: idx * 0.3 + delay,
+        onStart: () => {
+          gsap.set(text, { opacity: 1 })
+        },
+      })
+    })
+  }, [startAnimations])
 
   return (
     <>
@@ -32,12 +91,12 @@ export const Overview = () => {
 
       <div className={s['overview-bg']}></div>
       <section id="overview" className={s['overview']}>
-        <h1>
+        <h1 className="overview-h1">
           <em>Solana</em> Portfolio <br /> Tracker MCP
         </h1>
         <GetStarted />
 
-        <figure className={s['overview-i']}>
+        <figure className={cn(s['hero-fade'], s['overview-i'])}>
           <div className={s['overview-i-ul-w']}>
             <svg
               width="262"
@@ -78,7 +137,9 @@ export const Overview = () => {
             </svg>
             <ul className={s['overview-i-ul']}>
               {overviewItems.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="hero-scramble">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -99,14 +160,14 @@ export const Overview = () => {
         </p>
 
         <Image
-          className={s['overview-column-1']}
+          className={cn(s['hero-fade'], s['overview-column-1'])}
           src={'/greekcolumn.png'}
           width={253}
           height={819}
           alt=""
         />
         <Image
-          className={s['overview-column-2']}
+          className={cn(s['hero-fade'], s['overview-column-2'])}
           src={'/greekcolumn.png'}
           width={253}
           height={819}
@@ -142,7 +203,7 @@ export const GetStarted = () => {
           mask="url(#path-1-inside-1_188_413)"
         />
       </svg>
-      <span>Get Started</span>
+      <span data-cta>Get Started</span>
     </button>
   )
 }

@@ -67,6 +67,7 @@ export const NavMain = () => {
         end: 'top 90%',
         scrub: true,
       },
+      startAt: { autoAlpha: 1 },
     })
 
     ScrollTrigger.create({
@@ -123,6 +124,34 @@ export const NavMain = () => {
       )
   }, [])
 
+  useEffect(() => {
+    const navButtons = document.querySelectorAll('[data-cta]')
+    navButtons.forEach((button) => {
+      const originalText = button.textContent
+      button.setAttribute('data-original', originalText || '')
+
+      const scramble = () => {
+        gsap.to(button, {
+          duration: 1,
+          ease: 'sine.in',
+          scrambleText: {
+            text: button.getAttribute('data-original'),
+            chars: 'lowerCase',
+          },
+        })
+      }
+
+      button.addEventListener('pointerenter', scramble)
+      button.addEventListener('focus', scramble)
+    })
+
+    return () => {
+      navButtons.forEach((button) => {
+        button.replaceWith(button.cloneNode(true))
+      })
+    }
+  }, [])
+
   const handleClick = () => {
     setNavOpen((prev) => {
       const open = !prev
@@ -141,6 +170,7 @@ export const NavMain = () => {
           <nav className={s['nav']}>
             {links.map((link) => (
               <button
+                data-cta
                 className={s['nav-button']}
                 key={link}
                 data-link={slugify(link)}
@@ -193,6 +223,7 @@ export const NavMain = () => {
         <nav className={s['nav']}>
           {links.map((link) => (
             <button
+              data-cta
               className={s['nav-button']}
               key={link}
               data-link={slugify(link)}

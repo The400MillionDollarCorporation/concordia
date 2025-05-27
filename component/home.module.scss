@@ -25,6 +25,8 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--theme-green);
+    opacity: 0;
+    overflow: hidden;
 
     em {
       text-transform: none;
@@ -179,6 +181,14 @@
   width: max(29.2rem, 200px);
 }
 
+.gs,
+.nav,
+.logo,
+.hero-fade,
+.nav-mobile {
+  opacity: 0;
+}
+
 .nav {
   position: fixed;
   left: 50%;
@@ -316,14 +326,20 @@
 
 .gs {
   @extend %text-12;
-  font-weight: 600;
+  // font-weight: 600;
   line-height: 100%;
   color: var(--theme-brown);
   text-transform: uppercase;
-  // background: var(--theme-white);
 
   display: grid;
   place-items: center;
+
+  span {
+    width: 100%;
+    height: 100%;
+
+    @extend %center;
+  }
 
   span,
   svg {
