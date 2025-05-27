@@ -6,6 +6,7 @@ import { useDeviceDetection } from '~/shared/device-detection'
 import { gsap, ScrollTrigger } from '~/libs/gsap'
 import { useState, useRef, useEffect } from 'react'
 import { getOffset } from '~/libs/animations/dom'
+import cn from '~/libs/cn'
 
 const links = [
   'Overview',
@@ -22,7 +23,7 @@ export const Nav = () => {
   return (
     <>
       <Image
-        className={s['logo']}
+        className={cn('logo', s['logo'])}
         src="/logo.svg"
         width={292}
         height={32}
@@ -56,12 +57,24 @@ export const NavMain = () => {
       .timeline({ paused: true })
       .to(navMobile, { paddingBottom: '25vh', ease: 'none' })
 
+    gsap.to('.logo', {
+      autoAlpha: 0,
+      y: '-100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.logo-ft',
+        start: 'top 100%',
+        end: 'top 90%',
+        scrub: true,
+      },
+    })
+
     ScrollTrigger.create({
       trigger: ref,
       endTrigger: '#contact',
       start: `top ${navBottom - 50}px`,
       end: 'bottom bottom',
-      scrub: true,
+      scrub: 0.5,
       onUpdate: () => {
         const offset = getOffset(ref)
         gsap.set(nav, {

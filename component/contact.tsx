@@ -2,6 +2,7 @@ import { Image, Link } from '~/shared'
 import s from './home.module.scss'
 import { useLenis } from 'lenis/react'
 import { Lines } from './lines'
+import cn from '~/libs/cn'
 
 const links = [
   {
@@ -47,7 +48,7 @@ const Contact = () => {
 
       <div className={s['contact-main']}>
         <Image
-          className={s['logo']}
+          className={cn('logo-ft', s['logo'])}
           src="/logo.svg"
           width={292}
           height={32}
