@@ -5791,10 +5791,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gsap@npm:^3.11.1, gsap@npm:^3.12.4":
+"gsap@npm:^3.12.4":
   version: 3.12.5
   resolution: "gsap@npm:3.12.5"
   checksum: 10c0/cb38e89bd577fc18c9cf77e4aeb83617603b1e0fa768fe8ca1acd836fd852936722e186a88c9cf6ece42e53407edd45324be2bfe35a41f424c5f2c2b33fd1a98
+  languageName: node
+  linkType: hard
+
+"gsap@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "gsap@npm:3.13.0"
+  checksum: 10c0/a42dd2e02467a4abe96409aaf6cd0e5d697c72e05ec13c18c2271330493983aa63cc717c9dd0740fda2f884d0f56c7b98fc18b13500f0c1da94864985840da7c
   languageName: node
   linkType: hard
 
@@ -8623,7 +8630,7 @@ __metadata:
     glslify-loader: "npm:^2.0.0"
     graphql: "npm:^16.8.1"
     graphql-tag: "npm:^2.12.6"
-    gsap: "npm:^3.11.1"
+    gsap: "npm:^3.13.0"
     husky: "npm:^9.0.10"
     lenis: "npm:^1.1.8"
     next: "npm:^15.1.7"
