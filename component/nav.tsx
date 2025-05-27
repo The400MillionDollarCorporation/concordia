@@ -2,9 +2,13 @@ import { Image } from '~/shared'
 import { slugify } from '~/libs/slugify'
 import s from './home.module.scss'
 import { useLenis } from 'lenis/react'
+import { useDeviceDetection } from '~/shared/device-detection'
+import { gsap } from '~/libs/gsap'
+import { useState, useRef, useEffect } from 'react'
 
 const links = [
   'Overview',
+  'Features',
   'Supported protocols',
   'How it works',
   'Integrate with claude',
@@ -35,19 +39,132 @@ export const Nav = () => {
 export const NavMain = () => {
   const lenis = useLenis()
 
+  const { isMobile3x } = useDeviceDetection()
+
+  // eslint-disable-next-line no-unused-vars
+  const [navOpen, setNavOpen] = useState(false)
+  const tlRef = useRef<gsap.core.Timeline>()
+
+  useEffect(() => {
+    const btn = document.querySelector(`.${s['nav-btn']}`)
+    const btnDiv = document.querySelectorAll(`.${s['nav-btn-div']}`)
+    const nav = document.querySelector(`.${s['nav']}`)
+    const overlay = document.querySelector(`.${s['nav-overlay']}`)
+
+    tlRef.current = gsap
+      .timeline({
+        paused: true,
+        reversed: true,
+        defaults: { ease: 'power4.inOut', duration: 0.75 },
+      })
+      .to(btn, {
+        width: '100%',
+      })
+      .to(
+        btnDiv,
+        {
+          y: '-100%',
+        },
+        0
+      )
+      .to(
+        overlay,
+        {
+          autoAlpha: 1,
+        },
+        0
+      )
+      .to(
+        nav,
+        {
+          clipPath: 'inset(0% 0% 0% 0%)',
+        },
+        0.4
+      )
+  }, [])
+
+  const handleClick = () => {
+    setNavOpen((prev) => {
+      const open = !prev
+      if (tlRef.current) {
+        open ? tlRef.current.play() : tlRef.current.reverse()
+      }
+      return open
+    })
+  }
+
   return (
-    <nav className={s['nav']}>
-      {links.map((link) => (
-        <button
-          key={link}
-          data-link={slugify(link)}
-          onClick={() => {
-            lenis.scrollTo(`#${slugify(link)}`)
-          }}
-        >
-          {link}
-        </button>
-      ))}
-    </nav>
+    <>
+      {isMobile3x ? (
+        <div className={s['nav-mobile']}>
+          <div className={s['nav-overlay']}></div>
+          <nav className={s['nav']}>
+            {links.map((link) => (
+              <button
+                className={s['nav-button']}
+                key={link}
+                data-link={slugify(link)}
+                onClick={() => {
+                  lenis.scrollTo(`#${slugify(link)}`)
+                }}
+              >
+                {link}
+              </button>
+            ))}
+          </nav>
+          <button onClick={handleClick} className={s['nav-btn']}>
+            <div className={s['nav-btn-w']}>
+              <span className={s['nav-btn-div']}>
+                Menu
+                <svg
+                  width="15"
+                  height="8"
+                  viewBox="0 0 15 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 1H15" stroke="#9A886C" />
+                  <path d="M0 7H15" stroke="#9A886C" />
+                </svg>
+              </span>
+              <span className={s['nav-btn-div']}>
+                Close
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.696655 0.696777L11.3033 11.3034"
+                    stroke="#9A886C"
+                  />
+                  <path
+                    d="M0.696655 11.3032L11.3033 0.696621"
+                    stroke="#9A886C"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
+        </div>
+      ) : (
+        <nav className={s['nav']}>
+          {links.map((link) => (
+            <button
+              className={s['nav-button']}
+              key={link}
+              data-link={slugify(link)}
+              onClick={() => {
+                lenis.scrollTo(`#${slugify(link)}`)
+              }}
+            >
+              {link}
+            </button>
+          ))}
+        </nav>
+      )}
+    </>
   )
 }

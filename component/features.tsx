@@ -45,7 +45,7 @@ const features = [
 
 export const Features = () => {
   return (
-    <section className={s['features']}>
+    <section id="features" className={s['features']}>
       <h1>Features</h1>
 
       <div className={s['features-div']}>

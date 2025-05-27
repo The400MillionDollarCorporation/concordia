@@ -157,9 +157,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: z('navigation');
+  z-index: 2;
 
-  button {
+  @include respondMax('mobile3x') {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: static;
+
+    clip-path: inset(100% 0% 0% 0%);
+    transform: unset;
+    width: 100%;
+  }
+
+  &-mobile {
+    position: fixed;
+    z-index: z('navigation');
+    inset: 0;
+
+    padding-inline: var(--gutter);
+    padding-bottom: max(4vh, 30px);
+
+    display: none;
+
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+
+    @include respondMax('mobile3x') {
+      display: flex;
+    }
+  }
+
+  &-button {
     font-size: max(1.2rem, 10px);
     white-space: nowrap;
     font-family: var(--font-geist);
@@ -177,6 +206,74 @@
 
     &:first-of-type {
       border-left: 1px solid var(--theme-brown);
+    }
+
+    @include respondMax('mobile3x') {
+      border-left: 1px solid var(--theme-brown);
+      border-bottom: unset;
+      &:nth-of-type(even) {
+        border-left: unset;
+      }
+    }
+  }
+
+  &-btn {
+    position: relative;
+    z-index: 2;
+    font-size: max(1.2rem, 10px);
+    white-space: nowrap;
+    font-family: var(--font-geist);
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--theme-brown);
+    text-transform: uppercase;
+    background: var(--theme-white);
+    padding: max(1.2rem, 8px);
+
+    border: 1px solid var(--theme-brown);
+    background: var(--theme-white);
+
+    display: none;
+
+    @include respondMax('mobile3x') {
+      display: block;
+    }
+
+    &-w {
+      overflow: hidden;
+      display: block;
+      position: relative;
+    }
+
+    &-div {
+      @extend %center;
+      gap: max(1.2rem, 8px);
+
+      svg {
+        height: max(1.2rem, 10px);
+        // width: auto;
+      }
+
+      &:nth-of-type(2) {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.2);
+    display: none;
+
+    @include respondMax('mobile3x') {
+      display: block;
+      width: 100%;
+      visibility: hidden;
     }
   }
 }
@@ -418,6 +515,7 @@
     max-height: 96vh;
     position: absolute;
     bottom: 0;
+    pointer-events: none;
   }
 
   &-main {
@@ -436,10 +534,8 @@
       transform: unset;
     }
 
-    .nav {
-      position: static;
-      transform: unset;
-      padding-top: max(6vh, 30px);
+    .nav-ref {
+      margin-top: max(6vh, 30px);
     }
 
     p {

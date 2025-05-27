@@ -1,7 +1,6 @@
 import { Image, Link } from '~/shared'
 import s from './home.module.scss'
 import { useLenis } from 'lenis/react'
-import { NavMain } from './nav'
 
 const links = [
   {
@@ -75,7 +74,7 @@ const Contact = () => {
           ))}
         </ul>
 
-        <NavMain />
+        <div className={s['nav-ref']}></div>
       </div>
     </section>
   )
