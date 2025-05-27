@@ -1,5 +1,6 @@
 import { Image } from '~/shared'
 import s from './home.module.scss'
+import { Video } from '~/shared/video'
 
 const overviewItems = [
   'Wallet Overview & History...',
@@ -14,83 +15,97 @@ const overviewItems = [
 
 export const Overview = () => {
   return (
-    <section id="overview" className={s['overview']}>
-      <h1>
-        <em>Solana</em> Portfolio <br /> Tracker MCP
-      </h1>
-      <GetStarted />
+    <>
+      <Video
+        className={s['overview-video']}
+        src="/flow.mp4"
+        width={1440}
+        height={860}
+      />
+      <div className={s['overview-bg']}></div>
+      <section id="overview" className={s['overview']}>
+        <h1>
+          <em>Solana</em> Portfolio <br /> Tracker MCP
+        </h1>
+        <GetStarted />
 
-      <figure className={s['overview-i']}>
-        <div className={s['overview-i-ul-w']}>
-          <svg
-            width="262"
-            height="167"
-            viewBox="0 0 262 167"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clipPath="url(#clip0_669_2)">
-              <path d="M261.5 0.5H0.5V166.5H261.5V0.5Z" fill="#F8F8F6" />
-              <path d="M261.5 0.5H0.5V166.5H261.5V0.5Z" stroke="#9A886C" />
-              <mask
-                id="mask0_669_2"
-                style={{ maskType: 'luminance' }}
-                maskUnits="userSpaceOnUse"
-                x="8"
-                y="8"
-                width="246"
-                height="151"
-              >
-                <path
-                  d="M244 8C244 13.5228 248.477 18 254 18V149C248.477 149 244 153.477 244 159H18C18 153.477 13.5228 149 8 149V18C13.5228 18 18 13.5228 18 8H244Z"
-                  fill="white"
-                />
-              </mask>
-              <g mask="url(#mask0_669_2)">
-                <path
-                  d="M244 8H245V7H244V8ZM254 18H255V17H254V18ZM254 149V150H255V149H254ZM244 159V160H245V159H244ZM18 159H17V160H18V159ZM8 149H7V150H8V149ZM8 18V17H7V18H8ZM18 8V7H17V8H18ZM244 8H243C243 14.0751 247.925 19 254 19V18V17C249.029 17 245 12.9706 245 8H244ZM254 18H253V149H254H255V18H254ZM254 149V148C247.925 148 243 152.925 243 159H244H245C245 154.029 249.029 150 254 150V149ZM244 159V158H18V159V160H244V159ZM18 159H19C19 152.925 14.0751 148 8 148V149V150C12.9706 150 17 154.029 17 159H18ZM8 149H9V18H8H7V149H8ZM8 18V19C14.0751 19 19 14.0751 19 8H18H17C17 12.9706 12.9706 17 8 17V18ZM18 8V9H244V8V7H18V8Z"
-                  fill="#9A886C"
-                />
+        <figure className={s['overview-i']}>
+          <div className={s['overview-i-ul-w']}>
+            <svg
+              width="262"
+              height="167"
+              viewBox="0 0 262 167"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clipPath="url(#clip0_669_2)">
+                <path d="M261.5 0.5H0.5V166.5H261.5V0.5Z" fill="#F8F8F6" />
+                <path d="M261.5 0.5H0.5V166.5H261.5V0.5Z" stroke="#9A886C" />
+                <mask
+                  id="mask0_669_2"
+                  style={{ maskType: 'luminance' }}
+                  maskUnits="userSpaceOnUse"
+                  x="8"
+                  y="8"
+                  width="246"
+                  height="151"
+                >
+                  <path
+                    d="M244 8C244 13.5228 248.477 18 254 18V149C248.477 149 244 153.477 244 159H18C18 153.477 13.5228 149 8 149V18C13.5228 18 18 13.5228 18 8H244Z"
+                    fill="white"
+                  />
+                </mask>
+                <g mask="url(#mask0_669_2)">
+                  <path
+                    d="M244 8H245V7H244V8ZM254 18H255V17H254V18ZM254 149V150H255V149H254ZM244 159V160H245V159H244ZM18 159H17V160H18V159ZM8 149H7V150H8V149ZM8 18V17H7V18H8ZM18 8V7H17V8H18ZM244 8H243C243 14.0751 247.925 19 254 19V18V17C249.029 17 245 12.9706 245 8H244ZM254 18H253V149H254H255V18H254ZM254 149V148C247.925 148 243 152.925 243 159H244H245C245 154.029 249.029 150 254 150V149ZM244 159V158H18V159V160H244V159ZM18 159H19C19 152.925 14.0751 148 8 148V149V150C12.9706 150 17 154.029 17 159H18ZM8 149H9V18H8H7V149H8ZM8 18V19C14.0751 19 19 14.0751 19 8H18H17C17 12.9706 12.9706 17 8 17V18ZM18 8V9H244V8V7H18V8Z"
+                    fill="#9A886C"
+                  />
+                </g>
               </g>
-            </g>
-            <defs>
-              <clipPath id="clip0_669_2">
-                <rect width="262" height="167" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          <ul className={s['overview-i-ul']}>
-            {overviewItems.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
+              <defs>
+                <clipPath id="clip0_669_2">
+                  <rect width="262" height="167" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <ul className={s['overview-i-ul']}>
+              {overviewItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
 
-        <Image src={'/overview.png'} width={652} height={549} alt="Overview" />
-      </figure>
+          <Image
+            src={'/overview.png'}
+            width={652}
+            height={549}
+            alt="Overview"
+          />
+        </figure>
 
-      <p className={s['overview-p']}>
-        Concordia MCP is a next-generation Model Context Protocol (MCP) server
-        built for serious DeFi participants. It delivers real-time portfolio
-        insights, behavioral analytics, and AI-powered strategy
-        recommendations—all within the fast, scalable Solana ecosystem.
-      </p>
+        <p className={s['overview-p']}>
+          Concordia MCP is a next-generation Model Context Protocol (MCP) server
+          built for serious DeFi participants. It delivers real-time portfolio
+          insights, behavioral analytics, and AI-powered strategy
+          recommendations—all within the fast, scalable Solana ecosystem.
+        </p>
 
-      <Image
-        className={s['overview-column-1']}
-        src={'/greekcolumn.png'}
-        width={253}
-        height={819}
-        alt=""
-      />
-      <Image
-        className={s['overview-column-2']}
-        src={'/greekcolumn.png'}
-        width={253}
-        height={819}
-        alt=""
-      />
-    </section>
+        <Image
+          className={s['overview-column-1']}
+          src={'/greekcolumn.png'}
+          width={253}
+          height={819}
+          alt=""
+        />
+        <Image
+          className={s['overview-column-2']}
+          src={'/greekcolumn.png'}
+          width={253}
+          height={819}
+          alt=""
+        />
+      </section>
+    </>
   )
 }
 
