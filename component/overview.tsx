@@ -1,7 +1,7 @@
 import { Image } from '~/shared'
 import s from './home.module.scss'
-import { Video } from '~/shared/video'
 import { Lines } from './lines'
+import { useWindowSize } from '@studio-lumio/hooks'
 
 const overviewItems = [
   'Wallet Overview & History...',
@@ -15,14 +15,21 @@ const overviewItems = [
 ]
 
 export const Overview = () => {
+  const { width, height } = useWindowSize()
+
   return (
     <>
-      <Video
+      <video
+        width={width}
+        height={height}
+        muted
+        autoPlay
+        playsInline
+        loop
         className={s['overview-video']}
         src="/flow.mp4"
-        width={1440}
-        height={860}
       />
+
       <div className={s['overview-bg']}></div>
       <section id="overview" className={s['overview']}>
         <h1>

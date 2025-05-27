@@ -581,6 +581,7 @@
       align-items: center;
       justify-content: center;
       margin-top: max(1.5rem, 10px);
+      background: #f4f4f2;
 
       li {
         @extend %center;
@@ -593,6 +594,15 @@
           border-left: 1px solid #9d8b6f;
         }
       }
+    }
+  }
+
+  .lines {
+    transform: translate(-50%, -0%);
+    top: 0;
+    width: 160%;
+    svg {
+      opacity: 0.9;
     }
   }
 }

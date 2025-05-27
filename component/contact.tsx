@@ -1,6 +1,7 @@
 import { Image, Link } from '~/shared'
 import s from './home.module.scss'
 import { useLenis } from 'lenis/react'
+import { Lines } from './lines'
 
 const links = [
   {
@@ -35,6 +36,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className={s['contact']}>
+      <Lines />
       <Image
         className={s['contact-img']}
         src="/footer.png"

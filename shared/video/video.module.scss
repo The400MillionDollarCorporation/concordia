@@ -1,7 +1,0 @@
-.video {
-  position: relative;
-  width: 100%;
-  height: auto;
-  @include ratio(var(--width), var(--height));
-  object-fit: cover;
-}
