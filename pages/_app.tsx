@@ -6,12 +6,8 @@ import type { AppProps } from 'next/app'
 import { Manrope } from 'next/font/google'
 const manrope = Manrope({ subsets: ['latin'] })
 
-import { PageTransitions } from '@14islands/react-page-transitions'
-
 import { DeviceDetectionProvider } from '~/shared/device-detection'
-
 import { Analytics } from '~/libs/analytics'
-import { Canvas } from '~/libs/webgl/components/canvas'
 
 import { Metadata } from '~/shared'
 import { useAppUtilities } from '~/hooks/useAppUtilities'
@@ -22,7 +18,7 @@ const [Scrollbar] = [
   }),
 ]
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   useAppUtilities()
   useRealViewport()
 
@@ -31,14 +27,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <Analytics />
       <Metadata />
 
-      <Canvas>
-        <DeviceDetectionProvider>
-          <PageTransitions mode="sync" pageName={router.asPath}>
-            <Component {...pageProps} />
-          </PageTransitions>
-        </DeviceDetectionProvider>
-        <Scrollbar />
-      </Canvas>
+      <DeviceDetectionProvider>
+        <Component {...pageProps} />
+      </DeviceDetectionProvider>
+      <Scrollbar />
     </main>
   )
 }
