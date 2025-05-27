@@ -22,16 +22,18 @@ export const Nav = () => {
 
   return (
     <>
-      <Image
-        className={cn('logo', s['logo'])}
-        src="/logo.svg"
-        width={292}
-        height={32}
-        alt="concordia"
-        onClick={() => {
-          lenis.scrollTo(0)
-        }}
-      />
+      <div className={cn('logo-wrapper', s['logo-wrapper'])}>
+        <Image
+          className={cn('logo', s['logo'])}
+          src="/logo.svg"
+          width={292}
+          height={32}
+          alt="concordia"
+          onClick={() => {
+            lenis.scrollTo(0)
+          }}
+        />
+      </div>
 
       <NavMain />
     </>
@@ -57,7 +59,7 @@ export const NavMain = () => {
       .timeline({ paused: true })
       .to(navMobile, { paddingBottom: '25vh', ease: 'none' })
 
-    gsap.to('.logo', {
+    gsap.to('.logo-wrapper', {
       autoAlpha: 0,
       y: '-100%',
       ease: 'none',
@@ -67,7 +69,7 @@ export const NavMain = () => {
         end: 'top 90%',
         scrub: true,
       },
-      startAt: { autoAlpha: 1 },
+      // startAt: { autoAlpha: 1 },
     })
 
     ScrollTrigger.create({

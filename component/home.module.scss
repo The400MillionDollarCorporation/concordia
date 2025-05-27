@@ -172,6 +172,20 @@
   }
 }
 
+.logo-wrapper {
+  position: fixed;
+  top: max(5rem, 20px);
+  left: 50%;
+  z-index: z('logo');
+  transform: translateX(-50%);
+  width: max(29.2rem, 200px);
+
+  .logo {
+    position: static;
+    transform: unset;
+  }
+}
+
 .logo {
   position: fixed;
   top: max(5rem, 20px);
