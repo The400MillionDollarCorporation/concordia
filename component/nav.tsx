@@ -3,8 +3,9 @@ import { slugify } from '~/libs/slugify'
 import s from './home.module.scss'
 import { useLenis } from 'lenis/react'
 import { useDeviceDetection } from '~/shared/device-detection'
-import { gsap } from '~/libs/gsap'
+import { gsap, ScrollTrigger } from '~/libs/gsap'
 import { useState, useRef, useEffect } from 'react'
+import { getOffset } from '~/libs/animations/dom'
 
 const links = [
   'Overview',
@@ -44,6 +45,32 @@ export const NavMain = () => {
   // eslint-disable-next-line no-unused-vars
   const [navOpen, setNavOpen] = useState(false)
   const tlRef = useRef<gsap.core.Timeline>()
+
+  useEffect(() => {
+    const nav = document.querySelector(`.${s['nav']}`)
+    const navMobile = document.querySelector(`.${s['nav-mobile']}`)
+    const ref = document.querySelector(`.${s['nav-ref']}`)
+    const navBottom = nav.getBoundingClientRect().bottom
+
+    const animation = gsap
+      .timeline({ paused: true })
+      .to(navMobile, { paddingBottom: '25vh', ease: 'none' })
+
+    ScrollTrigger.create({
+      trigger: ref,
+      endTrigger: '#contact',
+      start: `top ${navBottom - 50}px`,
+      end: 'bottom bottom',
+      scrub: true,
+      onUpdate: () => {
+        const offset = getOffset(ref)
+        gsap.set(nav, {
+          top: offset.top,
+        })
+      },
+      animation,
+    })
+  }, [])
 
   useEffect(() => {
     const btn = document.querySelector(`.${s['nav-btn']}`)

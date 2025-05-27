@@ -143,7 +143,7 @@
   position: fixed;
   top: max(5rem, 20px);
   left: 50%;
-  z-index: z('navigation');
+  z-index: z('logo');
   transform: translateX(-50%);
   width: max(29.2rem, 200px);
 }
@@ -151,7 +151,7 @@
 .nav {
   position: fixed;
   left: 50%;
-  bottom: max(3rem, 15px);
+  top: calc(100% - max(6rem, 50px));
   transform: translateX(-50%);
 
   display: flex;
@@ -182,9 +182,14 @@
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    pointer-events: none;
 
     @include respondMax('mobile3x') {
       display: flex;
+    }
+
+    button {
+      pointer-events: auto;
     }
   }
 
@@ -508,11 +513,11 @@
   align-items: flex-end;
   overflow: hidden;
   position: relative;
-  padding-bottom: max(50px, 30vh);
+  padding-bottom: max(50px, 25vh);
 
   &-img {
-    width: max(98rem, 500px);
-    max-height: 96vh;
+    width: max(98rem, 540px);
+    max-height: 96%;
     position: absolute;
     bottom: 0;
     pointer-events: none;
