@@ -1,8 +1,17 @@
+import { useEffect } from 'react'
 import s from './home.module.scss'
+import cn from '~/libs/cn'
+import { gsap } from '~/libs/gsap'
 
 export const Lines = () => {
+  useEffect(() => {
+    const paths = document.querySelectorAll('.lines')
+    gsap.set(paths, { opacity: 0 })
+    gsap.to(paths, { opacity: 1, ease: 'none', duration: 0.5, delay: 2 })
+  }, [])
+
   return (
-    <div className={s['lines']}>
+    <div className={cn('lines', s['lines'])}>
       <svg
         width="2473"
         height="2474"

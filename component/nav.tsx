@@ -69,7 +69,6 @@ export const NavMain = () => {
         end: 'top 90%',
         scrub: true,
       },
-      // startAt: { autoAlpha: 1 },
     })
 
     ScrollTrigger.create({
