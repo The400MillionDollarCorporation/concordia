@@ -126,12 +126,13 @@ export const NavMain = () => {
   }, [])
 
   useEffect(() => {
+    let scramble
     const navButtons = document.querySelectorAll('[data-cta]')
     navButtons.forEach((button) => {
       const originalText = button.textContent
       button.setAttribute('data-original', originalText || '')
 
-      const scramble = () => {
+      scramble = () => {
         gsap.to(button, {
           duration: 1,
           ease: 'sine.in',
@@ -148,7 +149,8 @@ export const NavMain = () => {
 
     return () => {
       navButtons.forEach((button) => {
-        button.replaceWith(button.cloneNode(true))
+        button.removeEventListener('pointerenter', scramble)
+        button.removeEventListener('focus', scramble)
       })
     }
   }, [])
