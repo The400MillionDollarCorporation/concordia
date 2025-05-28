@@ -773,6 +773,13 @@
         @include ratio(650, 400);
       }
 
+      & > div {
+        width: 100% !important;
+        height: 100% !important;
+        @include ratio(650, 350);
+      }
+
+      lite-youtube,
       video {
         width: 100%;
         height: 100%;

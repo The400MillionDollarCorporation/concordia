@@ -2,6 +2,8 @@ import { Image } from '~/shared'
 import s from './home.module.scss'
 import { GetStarted } from './overview'
 
+import { YouTubeEmbed } from '@next/third-parties/google'
+
 const steps = [
   'Install and Run',
   'Configure Your Environment',
@@ -45,15 +47,13 @@ export const GetStartedMain = () => {
         </div>
 
         <div className={s['get-started-top-video']}>
-          <video
-            width={623}
-            height={326}
-            muted
-            autoPlay
-            playsInline
-            loop
-            src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-          ></video>
+          <YouTubeEmbed
+            videoid="L2vS_050c-M"
+            width={650}
+            height={350}
+            // @ts-ignore
+            title="Concordia"
+          />
         </div>
       </div>
 
