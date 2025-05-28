@@ -797,6 +797,14 @@
   padding-inline: var(--gutter);
   margin-bottom: max(20rem, 120px);
 
+  &-svg {
+    display: block;
+    margin-inline: auto;
+    margin-bottom: max(6rem, 30px);
+    width: max(29rem, 160px);
+    height: auto;
+  }
+
   h1 {
     @extend %text-64;
     font-family: var(--font-cormorant);
@@ -987,6 +995,15 @@
   min-height: 100svh;
   padding-inline: var(--gutter);
   margin-bottom: max(15rem, 100px);
+
+  &-svg {
+    display: block;
+    margin-inline: auto;
+    margin-bottom: max(6rem, 30px);
+    width: max(67rem, 350px);
+    height: auto;
+    max-width: 90vw;
+  }
 
   h1 {
     @extend %text-64;
