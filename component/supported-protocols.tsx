@@ -85,7 +85,11 @@ export const SupportedProtocols = () => {
 
       <div className={s['protocols-list']}>
         {protocols.map((protocol) => (
-          <div key={protocol.title} className={s['protocols-list-item']}>
+          <div
+            data-reveal
+            key={protocol.title}
+            className={s['protocols-list-item']}
+          >
             <h2 data-paragraph>{protocol.title}</h2>
             <div className={s['protocols-list-item-d']}>
               {protocol.subs.map((sub) => (
