@@ -1,4 +1,4 @@
-import { Image } from '~/shared'
+import { Image, Link } from '~/shared'
 import s from './home.module.scss'
 import { Lines } from './lines'
 import { useEffectOnce, useWindowSize } from '@studio-lumio/hooks'
@@ -198,7 +198,10 @@ export const Overview = () => {
 
 export const GetStarted = () => {
   return (
-    <button className={s['gs']}>
+    <Link
+      href="https://github.com/The400MillionDollarCorporation/concordia"
+      className={s['gs']}
+    >
       <svg
         width="159"
         height="44"
@@ -220,6 +223,6 @@ export const GetStarted = () => {
         />
       </svg>
       <span data-cta>Get Started</span>
-    </button>
+    </Link>
   )
 }
