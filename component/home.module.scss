@@ -249,6 +249,8 @@
   }
 
   &-button {
+    @extend %center;
+
     font-size: max(1.2rem, 10px);
     white-space: nowrap;
     font-family: var(--font-geist);
@@ -264,14 +266,14 @@
     border-right: 1px solid var(--theme-brown);
     background: var(--theme-white);
 
-    &:first-of-type {
+    &:first-child {
       border-left: 1px solid var(--theme-brown);
     }
 
     @include respondMax('mobile3x') {
       border-left: 1px solid var(--theme-brown);
       border-bottom: unset;
-      &:nth-of-type(even) {
+      &:nth-child(even) {
         border-left: unset;
       }
     }

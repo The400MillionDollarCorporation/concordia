@@ -1,4 +1,4 @@
-import { Image } from '~/shared'
+import { Image, Link } from '~/shared'
 import { slugify } from '~/libs/slugify'
 import s from './home.module.scss'
 import { useLenis } from 'lenis/react'
@@ -14,7 +14,6 @@ const links = [
   'Supported protocols',
   'How it works',
   'Integrate with claude',
-  'Contact',
 ]
 
 export const Nav = () => {
@@ -184,6 +183,9 @@ export const NavMain = () => {
                 {link}
               </button>
             ))}
+            <Link href="/" data-cta className={s['nav-button']}>
+              Docs
+            </Link>
           </nav>
           <button onClick={handleClick} className={s['nav-btn']}>
             <div className={s['nav-btn-w']}>
@@ -237,6 +239,9 @@ export const NavMain = () => {
               {link}
             </button>
           ))}
+          <Link href="/" data-cta className={s['nav-button']}>
+            Docs
+          </Link>
         </nav>
       )}
     </>
