@@ -30,7 +30,7 @@ const scrollOptions = {
   orientation: 'vertical',
   gestureOrientation: 'vertical',
   smoothWheel: true,
-  wheelMultiplier: 0.7,
+  wheelMultiplier: 1.2,
   touchMultiplier: 1,
   smoothTouch: false,
   infinite: false,
