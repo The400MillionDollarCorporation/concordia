@@ -8,7 +8,7 @@ const opensauce = localFont({
   display: 'swap',
   src: [
     {
-      path: '../public/fonts/OpenSauce.woff2',
+      path: '../public/fonts/opensauce.woff2',
       weight: '400',
       style: 'normal',
     },

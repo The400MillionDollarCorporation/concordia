@@ -199,7 +199,7 @@ export const Overview = () => {
 export const GetStarted = () => {
   return (
     <Link
-      href="https://github.com/The400MillionDollarCorporation/concordia"
+      href="https://github.com/The400MillionDollarCorporation/Concordia-MCP"
       className={s['gs']}
     >
       <svg

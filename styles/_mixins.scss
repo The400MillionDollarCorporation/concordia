@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // flexbox
 @mixin flex(
   $justify: flex-start,
@@ -56,25 +58,25 @@ $breakpoints: (
 }
 
 @mixin ratio($width, $height) {
-	overflow: hidden;
-	aspect-ratio: $width / $height;
-	object-fit: cover;
-	position: relative;
+  overflow: hidden;
+  aspect-ratio: math.div($width, $height);
+  object-fit: cover;
+  position: relative;
 
-	@supports not (aspect-ratio: calc($width / $height)) {
-		&::before {
-			content: '';
-			float: left;
-			padding-top: calc((#{$height} / #{$width}) * 100%);
-		}
-		&::after {
-			content: '';
-			display: block;
-			clear: both;
-		}
-	}
+  @supports not (aspect-ratio: calc($width / $height)) {
+    &::before {
+      content: '';
+      float: left;
+      padding-top: calc((#{$height} / #{$width}) * 100%);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
 }
-
 
 @mixin reduced-motion {
   @media (prefers-reduced-motion: reduce) {

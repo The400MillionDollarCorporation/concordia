@@ -20,7 +20,6 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   experimental: {
     optimizeCss: true,
     nextScriptWorkers: true,

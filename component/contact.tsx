@@ -7,24 +7,24 @@ import cn from '~/libs/cn'
 const links = [
   {
     name: 'Twitter',
-    url: 'https://twitter.com/ConcordiaAI',
+    url: 'https://twitter.com/ConcordiaMCP',
     icon: '/twitter.svg',
   },
-  {
-    name: 'Telegram',
-    url: 'https://t.me/ConcordiaAI',
-    icon: '/telegram.svg',
-  },
+  // {
+  //   name: 'Telegram',
+  //   url: 'https://t.me/ConcordiaAI',
+  //   icon: '/telegram.svg',
+  // },
   {
     name: 'GitHub',
-    url: 'https://github.com/ConcordiaAI',
+    url: 'https://github.com/The400MillionDollarCorporation/Concordia-MCP',
     icon: '/github.svg',
   },
-  {
-    name: 'Discord',
-    url: 'https://discord.gg/ConcordiaAI',
-    icon: '/discord.svg',
-  },
+  // {
+  //   name: 'Discord',
+  //   url: 'https://discord.gg/ConcordiaAI',
+  //   icon: '/discord.svg',
+  // },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/company/concordia-ai/',

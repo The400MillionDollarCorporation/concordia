@@ -12,6 +12,7 @@
   .lines {
     transform: translate(-50%, -65%);
     width: 180%;
+
     svg {
       opacity: 0.9;
     }
@@ -51,6 +52,7 @@
       right: 5px;
       top: max(35rem, 150px);
       width: max(25rem, 80px);
+
       @include respondMax('tablet') {
         display: none;
       }
@@ -273,6 +275,7 @@
     @include respondMax('mobile3x') {
       border-left: 1px solid var(--theme-brown);
       border-bottom: unset;
+
       &:nth-child(even) {
         border-left: unset;
       }
@@ -504,6 +507,7 @@
           font-family: var(--font-geist);
           font-weight: 400;
           line-height: 140%;
+
           @include respondMax('tablet') {
             font-size: max(12px, 2vw);
           }
@@ -513,6 +517,7 @@
           @extend %text-16;
           font-weight: 500;
           line-height: 120%;
+
           @include respondMax('tablet') {
             font-size: max(14px, 3vw);
           }
@@ -533,6 +538,7 @@
 
     &-item {
       width: max(20rem, 150px);
+
       @include respondMax('mobile2x') {
         width: 100%;
         max-width: 65vw;
@@ -554,6 +560,7 @@
         @extend %text-16;
         font-weight: 500;
         line-height: 120%;
+
         a {
           text-decoration: underline;
         }
@@ -633,6 +640,7 @@
     transform: translate(-50%, -0%);
     top: 0;
     width: 160%;
+
     svg {
       opacity: 0.9;
     }
@@ -770,6 +778,7 @@
       height: auto;
 
       @include ratio(650, 350);
+
       @include respondMax('tablet') {
         width: 100%;
         @include ratio(650, 400);
@@ -887,6 +896,7 @@
         text-align: center;
         text-transform: uppercase;
         color: var(--theme-green);
+
         @include respondMax('mobile3x') {
           font-size: max(10rem, 28px);
         }
@@ -897,6 +907,7 @@
         font-weight: 500;
         line-height: 149%;
         text-align: center;
+
         @include respondMax('mobile3x') {
           font-size: max(5rem, 12px);
         }
@@ -922,6 +933,7 @@
           svg {
             width: max(0.8rem, 5px);
             height: auto;
+
             @include respondMax('mobile3x') {
               width: max(2rem, 5px);
               min-width: max(2rem, 5px);
@@ -951,6 +963,7 @@
 
         p {
           width: max(25.5rem, 210px);
+
           @include respondMax('mobile3x') {
             width: max(100rem, 210px);
           }
@@ -1029,6 +1042,7 @@
           flex-wrap: wrap;
         }
       }
+
       &:nth-of-type(2) {
         grid-column: 1 / 4;
 
@@ -1036,6 +1050,7 @@
           grid-column: 1 / -1;
         }
       }
+
       &:nth-of-type(3) {
         grid-column: 4 / -1;
 
@@ -1043,6 +1058,7 @@
           grid-column: 1 / -1;
         }
       }
+
       &:nth-of-type(4) {
         grid-column: 1 / 2;
 
@@ -1050,6 +1066,7 @@
           grid-column: 1 / -1;
         }
       }
+
       &:nth-of-type(5) {
         grid-column: 2 / 6;
 
@@ -1057,6 +1074,7 @@
           grid-column: 1 / -1;
         }
       }
+
       &:nth-of-type(6) {
         grid-column: 6 / -1;
 

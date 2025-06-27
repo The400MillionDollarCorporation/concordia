@@ -183,7 +183,13 @@ export const NavMain = () => {
                 {link}
               </button>
             ))}
-            <Link href="/" data-cta className={s['nav-button']}>
+            <Link
+              href="https://docs.concordia-mcp.pro/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta
+              className={s['nav-button']}
+            >
               Docs
             </Link>
           </nav>
@@ -239,7 +245,13 @@ export const NavMain = () => {
               {link}
             </button>
           ))}
-          <Link href="/" data-cta className={s['nav-button']}>
+          <Link
+            href="https://docs.concordia-mcp.pro/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta
+            className={s['nav-button']}
+          >
             Docs
           </Link>
         </nav>
