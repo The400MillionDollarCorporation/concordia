@@ -2055,15 +2055,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/third-parties@npm:^14.2.3":
-  version: 14.2.3
-  resolution: "@next/third-parties@npm:14.2.3"
+"@next/third-parties@npm:^15.3.3":
+  version: 15.3.3
+  resolution: "@next/third-parties@npm:15.3.3"
   dependencies:
     third-party-capital: "npm:1.0.20"
   peerDependencies:
-    next: ^13.0.0 || ^14.0.0
-    react: ^18.2.0
-  checksum: 10c0/22afcd981a926efc8e88c5fecf6515e6aac031d0ea8671bf1956e690c56b7e9ff865fb15ef9e49f4b4e527c6e1db469b42fbfb68f4763adbe699b8c68d50d309
+    next: ^13.0.0 || ^14.0.0 || ^15.0.0
+    react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+  checksum: 10c0/c0729cd4e97ca0706ff0cd15ad6d52f24e5f7808a9fb96282f0fc57f7d54fa7dc887cca561c3d789c9c5bca4f2fa0fd515d4aa72e1f70ba716b2cdf498d1c771
   languageName: node
   linkType: hard
 
@@ -8608,7 +8608,7 @@ __metadata:
     "@cloudflare/next-on-pages": "npm:^1.9.0"
     "@gsap/react": "npm:^2.1.0"
     "@next/bundle-analyzer": "npm:^13.3.0"
-    "@next/third-parties": "npm:^14.2.3"
+    "@next/third-parties": "npm:^15.3.3"
     "@serwist/next": "npm:^8.4.4"
     "@serwist/precaching": "npm:^8.4.4"
     "@serwist/sw": "npm:^8.4.4"
